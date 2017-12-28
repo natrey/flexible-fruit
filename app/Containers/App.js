@@ -1,7 +1,11 @@
 import React, {Fragment} from 'react';
+import FruitEndWeight from '../Components/FruitEndWeight';
 import RangeSlider from '../Components/RangeSlider';
+
+
 const App = () => (
-    <Fragment>        
+    <Fragment>
+        <FruitEndWeight />    
         <RangeSlider 
             title="Начальный вес арбуза" 
             metric="кг" 
