@@ -20,7 +20,6 @@ class VolumeSlider extends Component {
         });
         const {updateWaterPercentage} = this.props;
         updateWaterPercentage(val);
-        console.log("here state:", store.getState());
     };
 
     render (){

@@ -20,7 +20,6 @@ class WeightSlider extends Component {
         });
         const {updateFruitWeight} = this.props;
         updateFruitWeight(val);
-        console.log("here state:", store.getState());
     };           
     
     render (){        
