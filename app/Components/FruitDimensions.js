@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import store from '../store.js';
+import '../icons/watermelon.svg';
+import '../icons/styles.css';
 
 class FruitDimensions extends Component {
     constructor(props, context) {
@@ -17,7 +18,7 @@ class FruitDimensions extends Component {
                 height: fruitDiameter,
                 fontSize: fruitDiameter
             }}>
-                <div style={{...styles.middleContainer, 
+                <div className="watermelon-icon" style={{...styles.middleContainer, 
                     width: middleDiameter,
                     height: middleDiameter
                 }}></div>
@@ -41,7 +42,8 @@ const styles = {
     },
     middleContainer: {
         position: 'absolute',
-        background: '#ff6767',
+        backgroundColor: '#ff6767',
+        backgroundSize: 'cover',
         borderRadius: '100%',
         width: '.99em',
         height: '.99em'

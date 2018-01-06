@@ -1,4 +1,5 @@
 const path = require('path');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const APP_DIR = path.resolve(__dirname, 'app');
@@ -26,7 +27,17 @@ const config = {
                 use: {
                     loader: 'babel-loader?cacheDirectory=true'
                 }
-            },            
+            },
+            // svg-loader
+            {
+                test: /\.svg$/,
+                loader: 'svg-sprite-loader',
+                options: {
+                    extract: true,
+                    spriteFilename: 'sprite-[hash:6].svg',
+                    esModule: false
+                }
+            },
             // css-loader
             {
                 test: /\.css$/,
@@ -43,9 +54,13 @@ const config = {
                         }
                     }
                 ]
-            }
+            },
+            
         ]
-    }
+    },
+    plugins: [
+        new SpriteLoaderPlugin()
+    ]
 };
 
 module.exports = config;
