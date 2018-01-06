@@ -2,28 +2,29 @@ import React, { Component, Fragment } from 'react'
 import Slider from 'react-rangeslider'
 import 'react-rangeslider/lib/index.css'
 
+
 class RangeSlider extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this.state = {
-            volume: props.initialValue
-        };
-        this.handleOnChange = this.handleOnChange.bind(this);
+            status: this.props.initialValue
+        };       
     }
 
-    handleOnChange(value) {
+    handleUpdate = (value) => {
         this.setState({
-            volume: value
-        })
-    }
+            status: value
+        });
+        this.props.onUpdate(value);             
+    }    
 
-    render() {
-        let { volume } = this.state;
+    render() {                
+        let {status} = this.state;
         let Title = null;
         let hasTitle = this.props.title;
         
         if(hasTitle){
-            Title = <div style={styles.title}>{this.props.title}: {volume}{this.props.metric}</div>
+            Title = <div style={styles.title}>{this.props.title}: {status} {this.props.metric}</div>
         }
         
         return (
@@ -33,20 +34,19 @@ class RangeSlider extends Component {
                     min={this.props.min}
                     max={this.props.max}
                     step={1}
-                    value={volume}
+                    value={status}
                     orientation={this.props.orientation}
-                    onChange={this.handleOnChange}
+                    onChange={this.handleUpdate} 
                 />
-            </Fragment>
-            
+            </Fragment>            
         )
     }
-}
+};
 
 const styles = {
     title: {
         textAlign: 'center'
     }
-}
+};
 
 export default RangeSlider;

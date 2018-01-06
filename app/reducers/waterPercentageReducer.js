@@ -10,7 +10,7 @@ export default function(state=initialState, action) {
         case UPDATE_WATER_PERCENTAGE: {
             return {
                 ...state,
-                waterPercentage: state.waterPercentage === action.payload.waterPercentage ? action.payload : state.waterPercentage
+                waterPercentage: action.waterPercentage
             }
         }
         default:

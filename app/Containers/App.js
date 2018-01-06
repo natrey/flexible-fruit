@@ -1,26 +1,16 @@
 import React, {Fragment} from 'react';
 import FruitEndWeight from '../Components/FruitEndWeight';
-import RangeSlider from '../Components/RangeSlider';
+import WeightSlider from './WeightSlider';
+import VolumeSlider from './VolumeSlider'
 
+import { connect } from 'react-redux';
 
-const App = () => (
-    <Fragment>
-        <FruitEndWeight />    
-        <RangeSlider 
-            title="Начальный вес арбуза" 
-            metric="кг" 
-            min={5} 
-            max={20} 
-            initialValue={5} 
-            orientation="vertical"/>
-        <RangeSlider 
-            title="Процент воды после усыхания" 
-            metric="%" 
-            min={50} 
-            max={99} 
-            initialValue={99} 
-            orientation="horizontal"/>
-    </Fragment>
+const App = () => (        
+        <Fragment>
+            <FruitEndWeight />
+            <WeightSlider />
+            <VolumeSlider />
+        </Fragment>
 );
 
-export default App
+export default connect()(App);
