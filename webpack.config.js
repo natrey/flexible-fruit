@@ -1,7 +1,7 @@
 const path = require('path');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
-const BUILD_DIR = path.resolve(__dirname, 'public');
+const BUILD_DIR = path.resolve(__dirname, 'docs');
 const APP_DIR = path.resolve(__dirname, 'app');
 
 const config = {

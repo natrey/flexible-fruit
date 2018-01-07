@@ -1,18 +1,22 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import '../icons/styles.css';
+import './FruitDimensions.css';
 
 class FruitDimensions extends Component {
     constructor(props, context) {
         super(props, context);
     }
     render() {
-        // let fruitDiameter = Math.cbrt(this.props.finalWeight/(Math.PI*4/3))*2 + 'px';
-        let fruitDiameter = this.props.finalWeight*4 + 'px';
+        // Диаметр арбуза вычисляется по формуле объёма шара (в см), 
+        // затем умножается на 80 для визуализации в пикселях (1 см = 80 пикселей).
+        let fruitDiameter = Math.cbrt(this.props.finalWeight/(Math.PI*4/3))*80 + 'px';
+        
+        // Диаметр мякоти соответствует проценту воды после усыхания. 
+        // Уменьшается на 10 для наглядности (иначе корка может быть слишком тонкой). 
         let middleDiameter = (this.props.waterPercentage - 10)/100  + 'em';        
         return (
-            <div style={{...styles.borderContainer,
+            <div className="fruit-container" style={{
                 width: fruitDiameter,
                 height: fruitDiameter,
                 fontSize: fruitDiameter
@@ -26,23 +30,7 @@ class FruitDimensions extends Component {
     }
 }
 
-const styles = {
-    borderContainer: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,    
-        margin: 'auto',
-        background: '#4CAF50',
-        borderRadius: '100%',
-        width: '100px',
-        height: '100px',
-        fontSize: '100px'
-    },
+const styles = {    
     middleContainer: {
         position: 'absolute',
         backgroundColor: '#ff6767',

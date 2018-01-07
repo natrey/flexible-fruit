@@ -1,0 +1,29 @@
+.watermelon-icon{
+  background: url('../icons/watermelon.svg');
+}
+
+.fruit-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: #4CAF50;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
+}
+
+/* MOBILE */
+@media(max-width: 568px){
+  .fruit-container{
+    position: relative;
+    top: 0;
+    margin: 40px auto 30px;
+  }
+}

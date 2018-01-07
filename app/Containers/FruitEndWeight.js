@@ -6,25 +6,30 @@ import * as actions from '../actions/fruitWeightActions';
 
 class FruitEndWeight extends Component {
     constructor(props) {
-        super(props);        
+        super(props);
+        this.state={
+            weight: this.props.finalWeight
+        }
     }
 
-    componentWillReceiveProps(nextProps){        
-        let currentWeight = nextProps.finalWeight/(100 - nextProps.waterPercentage);        
+    componentWillReceiveProps(nextProps){   
+        // Конечный вес после усыхания.
+        let currentWeight = nextProps.finalWeight/(100 - nextProps.waterPercentage); 
+        
+        // Округляю число до 2-х знаков после запятой.
         currentWeight = Math.round(currentWeight*100)/100;
         
-        if(nextProps.finalWeight !== this.props.finalWeight){
+        if(nextProps.finalWeight !== this.props.finalWeight || nextProps.waterPercentage !== this.props.waterPercentage){
+            this.setState({weight: currentWeight});
             let {updateFinalFruitWeight} = this.props;
             updateFinalFruitWeight(currentWeight);
         }        
     }
     
-    render() {
-        let currentWeight = (this.props.finalWeight/(100 - this.props.waterPercentage)).toFixed(2);        
-        
+    render() {   
         return (
             <div>
-                <div style={styles.title}>Вес после усыхания: {currentWeight} кг.</div>
+                <div style={styles.title}>Вес после усыхания: {this.state.weight} кг.</div>
             </div>
         )
     }
