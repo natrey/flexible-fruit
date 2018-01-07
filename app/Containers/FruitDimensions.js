@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import '../icons/watermelon.svg';
 import '../icons/styles.css';
 
 class FruitDimensions extends Component {
@@ -32,13 +31,17 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        position: 'relative',
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,    
+        margin: 'auto',
         background: '#4CAF50',
         borderRadius: '100%',
         width: '100px',
         height: '100px',
-        fontSize: '100px',
-        margin: '20px auto'
+        fontSize: '100px'
     },
     middleContainer: {
         position: 'absolute',

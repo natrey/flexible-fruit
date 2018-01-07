@@ -44,7 +44,8 @@ function mapStateToProps(state, ownProps) {
 
 const styles = {
     title: {
-        textAlign: 'center'
+        textAlign: 'center',
+        fontWeight: 'bold'
     }
 };
 
