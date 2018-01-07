@@ -12,6 +12,7 @@
 .params-wrapper__row{
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .params-wrapper__aside{

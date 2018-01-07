@@ -33,6 +33,11 @@ class FruitDimensions extends Component {
 const styles = {    
     middleContainer: {
         position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        margin: 'auto',
         backgroundColor: '#ff6767',
         backgroundSize: 'cover',
         borderRadius: '100%',
